@@ -14,8 +14,10 @@ class Turn {
 
   giveFeedback() {
     if (this.guess === this.card.correctAnswer) {
+      console.log('Your answer was: correct')
       return 'correct!';
     } else {
+      console.log('Your answer was: incorrect!');
       return 'incorrect!'
     }
   }
