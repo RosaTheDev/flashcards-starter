@@ -1,19 +1,11 @@
 class Round {
   constructor(deck) {
     this.deck = deck;
-    this.currentCard = {};
-    this.turns = 0; 
-    this.incorrectGuesses = [];
   }
 
   returnCurrentCard() {
-    this.currentCard = this.deck.cards.shift();
-
-    return this.currentCard;
-  }
-
-  takeTurn() {
-    this.turns++
+    console.log(this.deck.cards.shift());
+    // return this.deck.cards[0];
   }
 }
 module.exports = Round;
