@@ -2,7 +2,7 @@ class Round {
   constructor(deck) {
     this.deck = deck;
     this.currentCard = {};
-    round 
+    this.turns = 0; 
   }
 
   returnCurrentCard() {
