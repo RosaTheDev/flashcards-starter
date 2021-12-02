@@ -14,10 +14,10 @@ class Turn {
 
   giveFeedback() {
     if (this.guess === this.card.correctAnswer) {
-      console.log('✅ Your answer was 😅: correct ✅' + '\n')
+      // console.log('\n' + '✅ Your answer was 😅: correct ✅' + '\n')
       return 'correct!';
     } else {
-      console.log('🛑 Your answer was 😭: incorrect! 🛑' + '\n');
+      // console.log('🛑 Your answer was 😭: incorrect! 🛑' + '\n');
       return 'incorrect!'
     }
   }
