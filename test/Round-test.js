@@ -110,6 +110,22 @@ describe('Round', function() {
     round.takeTurn('object');
     round.takeTurn('lil wayne');
     expect(round.calculatePercentCorrect()).to.eql(50);
+  });
+
+  it('Should announce the end of the round', function() {
+    const card1 = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
+    const card2 = new Card(6, "What is an example of a mutator method?", ["sort()", "map()", "join()"], "sort()");
+    const card3 = new Card(20, "forEach() returns an array", ["true", "false"], "false");
+
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+
+    round.takeTurn('object');
+    round.takeTurn('Tunchi');
+    round.takeTurn('Don Cornelius');
+    round.calculatePercentCorrect();
+
+    expect(round.endRound()).to.equal( '** Round over! ** You answered 33% of the questions correctly!')
   })
 
 });

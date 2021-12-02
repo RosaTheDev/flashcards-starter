@@ -37,8 +37,13 @@ class Round {
 
   calculatePercentCorrect() {
     this.correctGuessesCount = ((this.turns - this.incorrectGuesses.length) / this.turns) * 100
+    
     console.log(`${this.correctGuessesCount}% Correct! SMARTY`)
     return this.correctGuessesCount;
+  }
+
+  endRound() {
+    return `** Round over! ** You answered ${this.correctGuessesCount}% of the questions correctly!`;
   }
 }
 module.exports = Round;
