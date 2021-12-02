@@ -17,7 +17,7 @@ describe('Round', function() {
     expect(round).to.be.an.instanceOf(Round);
   });
 
-  it('should contain a deck inside the round', function() {
+  it.skip('should contain a deck inside the round', function() {
     const card1 = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
     const card2 = new Card(6, "What is an example of a mutator method?", ["sort()", "map()", "join()"], "sort()");
     const card3 = new Card(20, "forEach() returns an array", ["true", "false"], "false");
@@ -28,7 +28,7 @@ describe('Round', function() {
     expect(round.deck).to.equal(deck);
   });
 
-  it('should set the current card', function () {
+  it.skip('should set the current card', function () {
     const card1 = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
     const card2 = new Card(6, "What is an example of a mutator method?", ["sort()", "map()", "join()"], "sort()");
     const card3 = new Card(20, "forEach() returns an array", ["true", "false"], "false");
@@ -39,7 +39,7 @@ describe('Round', function() {
     expect(round.returnCurrentCard()).to.equal(card1);
   });
 
-  it('should have the turns set to 0 by default', function () {
+  it.skip('should have the turns set to 0 by default', function () {
     const card1 = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
     const card2 = new Card(6, "What is an example of a mutator method?", ["sort()", "map()", "join()"], "sort()");
     const card3 = new Card(20, "forEach() returns an array", ["true", "false"], "false");
@@ -50,7 +50,7 @@ describe('Round', function() {
     expect(round.turns).to.equal(0);
   });
 
-  it('should have incorrectGuesses set to an empty array', function () {
+  it.skip('should have incorrectGuesses set to an empty array', function () {
     const card1 = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
     const card2 = new Card(6, "What is an example of a mutator method?", ["sort()", "map()", "join()"], "sort()");
     const card3 = new Card(20, "forEach() returns an array", ["true", "false"], "false");
@@ -61,7 +61,7 @@ describe('Round', function() {
   });
 
 
-  it('should update the turns count when takeTurn method is invoked', function () {
+  it.skip('should update the turns count when takeTurn method is invoked', function () {
     const card1 = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
     const card2 = new Card(6, "What is an example of a mutator method?", ["sort()", "map()", "join()"], "sort()");
     const card3 = new Card(20, "forEach() returns an array", ["true", "false"], "false");
@@ -71,7 +71,32 @@ describe('Round', function() {
 
     round.takeTurn('otter');
     expect(round.turns).to.equal(1);
+  });
+
+  it('should make a new instance of Turn when a guess is made ', function () {
+    const card1 = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
+    const card2 = new Card(6, "What is an example of a mutator method?", ["sort()", "map()", "join()"], "sort()");
+    const card3 = new Card(20, "forEach() returns an array", ["true", "false"], "false");
+
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+
+    round.takeTurn('lil Wayne');
+    expect(round.turn).to.be.an.instanceOf(Turn);
   })
+
+  it('should get a new card after you call the currentCard', function() {
+    const card1 = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
+    const card2 = new Card(6, "What is an example of a mutator method?", ["sort()", "map()", "join()"], "sort()");
+    const card3 = new Card(20, "forEach() returns an array", ["true", "false"], "false");
+
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+
+    round.takeTurn('lil Wayne');
+    round.takeTurn('DJ Snake');
+    expect(round.nextCard).to.equal(card3);
+  }); 
 });
 
   
