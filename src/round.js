@@ -4,8 +4,7 @@ const Turn = require("./turn");
 class Round {
   constructor(deck) {
     this.deck = deck;
-    this.currentCard = {};
-    this.nextCard = {};
+    this.currentCard;
     this.incorrectGuesses = [];
     this.turns = 0; 
     this.correctGuessesCount = 0;
@@ -13,8 +12,7 @@ class Round {
   }
 
   returnCurrentCard() {
-    this.currentCard = this.deck.cards.shift();
-    this.nextCard = this.deck.cards[0];
+    this.currentCard = this.deck.cards[0];
     return this.currentCard;
   }
 
@@ -22,17 +20,11 @@ class Round {
     this.turns++
     this.returnCurrentCard();
     this.turn = new Turn(userGuess, this.currentCard);
-    this.turn.giveFeedback()
-    
-    // console.log(`👇 Here is your card if you'd like to study it!: 👇` + '\n');
-    // console.log(`❓❓ Question: ${this.currentCard.question}` + '\n');
-    // console.log(`📚📚 list of possible answers: ${this.currentCard.answers}` + '\n');
-    // console.log(`🙋🙋🙋Your Guess was: ${userGuess}` + '\n');
-
     if (this.turn.giveFeedback() === 'incorrect!') {
       this.incorrectGuesses.push(this.currentCard.id)
-      // console.log(this.incorrectGuesses);
-    }
+    } 
+    this.deck.cards.shift();
+    return this.turn.giveFeedback();
   }
 
   calculatePercentCorrect() {
@@ -42,7 +34,8 @@ class Round {
   }
 
   endRound() {
-    return `** Round over! ** You answered ${this.correctGuessesCount}% of the questions correctly!`;
+    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
   }
 }
 module.exports = Round;
