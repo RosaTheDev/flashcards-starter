@@ -7,12 +7,14 @@ const Deck = require('../src/Deck');
 const Turn = require('../src/turn');
 const Round = require('../src/round');
 const data = require('./Small_data_test');
+
 describe('Round', function() {  
   let card1;
   let card2;
   let card3;
   let deck;
   let round; 
+  
   beforeEach(function() {
     card1 = new Card(data.testData[0]);
     card2 = new Card(data.testData[1]);
