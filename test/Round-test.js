@@ -64,22 +64,19 @@ describe('Round', function() {
     expect(round.turn).to.be.an.instanceOf(Turn);
   })
 
-  it('should get a new card after you call the currentCard', function() {
-
+  it('should get a new card after you call the currentCard', function() 
     round.takeTurn('lil Wayne');
     round.takeTurn('DJ Snake');
     expect(round.nextCard).to.equal(card3);
   }); 
 
   it('should calculate the pertentage of the users correct answers ', function () {
-
     round.takeTurn('object');
     round.takeTurn('lil wayne');
     expect(round.calculatePercentCorrect()).to.eql(50);
   });
 
   it('should calculate the pertentage of the users correct answers ', function () {
-
     round.takeTurn('object');
     round.takeTurn('lil wayne');
     round.takeTurn('false')
