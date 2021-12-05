@@ -19,7 +19,9 @@ Well, whoever you are! You will be amazed at this flashcard game!\
 - Mocha
 - Chai
 
-
+## Project Goals and Wins
+- My goal was to have a deeper understanding on the class to class, calling upon different files and actually being able to test and manipulate the data, I found myself feeling really confident in putting together everything I learned from the previous Mod!
+- I did a similar project in the BackEnd program using Ruby, I didn't end up finishing, the fact that I finished this one was a huge win!
 ## Install/Setup instructions
 ![How To Play gif](https://media1.giphy.com/media/kdiLau77NE9Z8vxGSO/giphy.gif?cid=ecf05e47hb9jpiv79t1xy2nlz2xnwvacxd9mh9cfl14xpu71&rid=giphy.gif&ct=g) 
 
